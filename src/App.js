@@ -23,7 +23,7 @@ const MyComponent = () => {
       setunlockLoading(true);
 
       // 发送解锁请求
-      const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+      const response = await axios.get('10.0.0.1/arm');
 
       // 更新解锁请求的响应数据
       setunlockResponseData(response.data);
@@ -39,7 +39,7 @@ const MyComponent = () => {
       settakeoffLoading(true);
 
       // 发送起飞请求
-      const response = await axios.get('https://jsonplaceholder.typicode.com/todos/2');
+      const response = await axios.get('10.0.0.1/takeoff');
 
       // 更新起飞请求的响应数据
       settakeoffResponseData(response.data);
