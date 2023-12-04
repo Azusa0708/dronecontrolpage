@@ -12,7 +12,7 @@ const MyComponent = () => {
   const [landingloading, setlandingLoading] = useState(false);
   const [backloading, setbackLoading] = useState(false);
   const [movetopointloading, setmovetopointLoading] = useState(false);
-
+  
   //定点飞行xyz坐标
   const [xpoint,setxpoint] = useState('');
   const [ypoint,setypoint] = useState('');
