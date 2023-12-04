@@ -2,17 +2,23 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const MyComponent = () => {
+  //解锁
   const [unlockresponseData, setunlockResponseData] = useState(null);
-  const [takeoffresponseData, settakeoffResponseData] = useState(null);
-  const [landingresponseData, setlandingResponseData] = useState(null);
-  const [backresponseData, setbackResponseData] = useState(null);
-  const [movetopointresponseData, setmovetopointresponseData] = useState(null);
   const [unlockloading, setunlockLoading] = useState(false);
+  //起飞
+  const [takeoffresponseData, settakeoffResponseData] = useState(null);
   const [takeoffloading, settakeoffLoading] = useState(false);
+  //着陆
+  const [landingresponseData, setlandingResponseData] = useState(null);
   const [landingloading, setlandingLoading] = useState(false);
+  //返航
+  const [backresponseData, setbackResponseData] = useState(null);
   const [backloading, setbackLoading] = useState(false);
+  //定点飞行
+  const [movetopointresponseData, setmovetopointresponseData] = useState(null);
   const [movetopointloading, setmovetopointLoading] = useState(false);
-  
+
+
   //定点飞行xyz坐标
   const [xpoint,setxpoint] = useState('');
   const [ypoint,setypoint] = useState('');
