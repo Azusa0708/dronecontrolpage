@@ -186,6 +186,27 @@ const MyComponent = () => {
           </button>
         </div>
 
+        <div>
+          <input
+          type='text'
+          value={xpoint}
+          onChange={(e) => setxpoint(e.target.value)}
+          placeholder='目的x坐标'
+          />
+          <input
+          type='text'
+          value={ypoint}
+          onChange={(e) => setypoint(e.target.value)}
+          placeholder='目的y坐标'
+          />
+          <input
+          type='text'
+          value={zpoint}
+          onChange={(e) => setzpoint(e.target.value)}
+          placeholder='目的z坐标'
+          />
+        </div>
+
       {/* 显示定点飞行请求的响应数据 */}
       <div>
         {movetopointresponseData && (
