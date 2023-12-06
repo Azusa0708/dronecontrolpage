@@ -18,12 +18,34 @@ const MyComponent = () => {
   const [movetopointresponseData, setmovetopointresponseData] = useState(null);
   const [movetopointloading, setmovetopointLoading] = useState(false);
 
-
   //定点飞行xyz坐标
   const [xpoint,setxpoint] = useState('');
   const [ypoint,setypoint] = useState('');
   const [zpoint,setzpoint] = useState('');
   
+  //定方向飞行
+  const [directionmoveresponseData,setdirectionmoveResponseData] = useState(null);
+  const [directionmoveloading,setdirectionmoveLoading] = useState(false);
+
+  //定方向飞行方向及时间
+  const [direction,setdirection] = useState('');
+  const [time,settime] = useState('');
+
+  const directionmove = async () => {
+    try {
+      setdirectionmoveLoading(true);
+
+      //发送定方向飞行请求
+      const response = await axios.get('');
+
+      //更新定方向飞行请求的响应数据
+      setdirectionmoveResponseData(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      setdirectionmoveLoading(false);
+    }
+  };
   
   const unlock = async () => {
     try {
@@ -223,6 +245,40 @@ const MyComponent = () => {
             </div>
         )}
       </div>
+      </div>
+
+      {/* 定方向飞行 */}
+      <div>
+        <div>
+          <button onClick={directionmove} disabled={directionmoveloading}>
+            {directionmoveloading ? '定方向飞行中...':'定方向飞行'}
+          </button>
+        </div>
+
+        <div>
+          <input
+          type='text'
+          value={direction}
+          onChange={(e) => setdirection(e.target.value)}
+          placeholder='飞行方向，例：x'
+          />
+          <input
+          type='text'
+          value={time}
+          onChange={(e) => settime(e.target.value)}
+          placeholder='飞行时间'
+          />
+        </div>
+
+        {/*显示定方向飞行请求的响应数据*/}
+        <div>
+          {directionmoveresponseData && (
+            <div>
+              <h2>定方向飞行信息</h2>
+              <pre>{JSON.stringify(directionmoveresponseData, null, 2)}</pre>
+              </div>
+          )}
+        </div>
       </div>
 
     </div>
