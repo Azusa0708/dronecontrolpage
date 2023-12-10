@@ -70,7 +70,7 @@ const MyComponent = () => {
       // 发送起飞请求
       const response = await axios.get('10.0.0.1/takeoff');
 
-      // 更新起飞请求的响应数据
+      // 更新起飞请求的响应数据 
       settakeoffResponseData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
